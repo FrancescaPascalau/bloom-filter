@@ -5,8 +5,8 @@ import java.util.List;
 
 public class CustomBloomFilter {
 
-    final private int size;
-    final private List<Boolean> list;
+    private final int size;
+    private final List<Boolean> list;
 
     public CustomBloomFilter(int size) {
         this.size = size;
