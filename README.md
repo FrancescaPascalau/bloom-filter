@@ -39,3 +39,10 @@ probability of false positives by selecting an optimal value of and for up to in
 A Bloom filter eventually reaches a point where all bits are set, which means every query will indicate membership,
 effectively making the probability of false positives. The problem with this is it requires a priori knowledge of the
 data set in order to select optimal parameters and avoid “overfilling”.
+
+## Example
+
+Giving a set of phone numbers, we implement a bloom filter to avoid sending sms in case a specific phone already
+received a sms before.
+
+![](phone_book.png)
