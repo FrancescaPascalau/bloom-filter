@@ -8,7 +8,6 @@ public class CustomBloomFilterBits {
     private int numBits;
     private int numHashFunctions;
     private long[] bitMap;
-    private int bitMapLength;
 
     public void init() {
         this.numBits = (int) optimalNumOfBits(SIZE, FPP);
@@ -23,11 +22,10 @@ public class CustomBloomFilterBits {
         }
 
         if (bitMapLength > Integer.MAX_VALUE) {
-            throw new RuntimeException(" Array length is too long ");
+            throw new RuntimeException("Array length is too long");
         }
 
         this.bitMap = new long[(int) bitMapLength];
-        this.bitMapLength = (int) bitMapLength;
     }
 
     // Calculation hash Number of functions 

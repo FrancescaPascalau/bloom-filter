@@ -1,4 +1,4 @@
-# Bloom Filter
+# Bloom Filter - The probabilistic data structure
 
 **Bloom filter** is a highly space-efficient probabilistic data structure designed to check the set membership. The
 price paid for this efficiency is that a Bloom filter is a probabilistic data structure:
@@ -46,3 +46,16 @@ Giving a set of phone numbers, we implement a bloom filter to avoid sending sms 
 received a sms before.
 
 ![](phone_book.png)
+
+## The Bitwise Bloom Filter
+
+A significant disadvantage of the spectral Bloom filter, and other variations on it, is that there is no way of
+pre-determining how large a particular item’s count can get. Simply allocating a conservative number of bits to each
+counter is a waste of space and using variable size counters adds unnecessary complexity to the implementation and
+increases the number of memory accesses required. Motivated by this consideration, the simple idea behind the **Bitwise
+Bloom filter** is that each count can be maintained in its binary representation, with each order of magnitude having
+its own counting Bloom filter.
+
+### Live Demos of Bloom Filters with one or multiple hash functions:
+
+https://florian.github.io/bloom-filters/
