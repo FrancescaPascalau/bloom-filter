@@ -3,7 +3,10 @@ package com.francesca.pascalau;
 import com.francesca.pascalau.filters.BloomFilterGuava;
 import com.francesca.pascalau.filters.CustomBloomFilter;
 import com.francesca.pascalau.filters.CustomBloomFilterBits;
+import com.francesca.pascalau.filters.SimpleBloomFilter;
 import com.francesca.pascalau.service.SmsService;
+
+import java.util.List;
 
 public class BloomFilterApplication {
 
@@ -17,6 +20,7 @@ public class BloomFilterApplication {
         bloomFilter();
         customBloomFilter();
         bits();
+        simpleBits();
 
         smsService.sendSms("600 000 001");
         smsService.sendSms("600 000 002");
@@ -68,6 +72,28 @@ public class BloomFilterApplication {
             }
         }
         System.out.println("Existent elements = " + exitsNums);
-        System.out.println("\n=== stopping Custom Bloom Filter on Bits ===");
+        System.out.println("\n=== Stopping Custom Bloom Filter on Bits ===");
+    }
+
+    private static void simpleBits() {
+        System.out.println("\n=== Starting Simple Bits Bloom Filter ===");
+
+        long[] list = new long[0];
+        SimpleBloomFilter<Long> simpleBloomFilter = new SimpleBloomFilter<>(list, 32, List.of());
+
+        simpleBloomFilter.add(1L);
+        simpleBloomFilter.add(2L);
+        simpleBloomFilter.add(6L);
+        simpleBloomFilter.add(10L);
+        simpleBloomFilter.add(111L);
+
+        System.out.println(simpleBloomFilter.mightContain(1L)); //true
+        System.out.println(simpleBloomFilter.mightContain(2L)); //true
+        System.out.println(simpleBloomFilter.mightContain(6L)); //true
+        System.out.println(simpleBloomFilter.mightContain(10L)); //true
+        System.out.println(simpleBloomFilter.mightContain(111L)); //true
+        System.out.println(simpleBloomFilter.mightContain(20L)); //false
+        System.out.println(simpleBloomFilter.mightContain(11L)); //false
+        System.out.println("\n=== Stopping Simple Bits Bloom Filter ===");
     }
 }
