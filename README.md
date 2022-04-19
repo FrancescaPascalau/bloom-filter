@@ -1,4 +1,4 @@
-# Bloom Filter - The probabilistic data structure
+# Bloom Filter - probabilistic data structure
 
 **Bloom filter** is a highly space-efficient probabilistic data structure designed to check the set membership. The
 price paid for this efficiency is that a Bloom filter is a probabilistic data structure:
@@ -59,3 +59,32 @@ its own counting Bloom filter.
 ### Live Demos of Bloom Filters with one or multiple hash functions:
 
 https://florian.github.io/bloom-filters/
+
+# Count-Min Sketch - probabilistic data structure
+
+Let’s say we want to count the number of times elements appear in a stream of data. A simple solution is to maintain a
+hash table that maps elements to their frequencies.
+
+This approach does not scale: Imagine having a stream with billions of elements, most of which are unique. Even if we
+are only interested in the most important ones, this method has huge space requirements. Since we do not know for which
+items to store counts, our hash table will grow to contain billions of elements.
+
+The Count-Min Sketch, or CMS, is a data structure that solves this problem in an approximate way. Similarly to Bloom
+Filters, we save a lot of space by using probabilistic techniques. In fact, a CMS works a bit like a Counting Bloom
+Filter, though they do have different use cases.
+
+Problem of using **Multiset** to count the number of times elements appear in it:
+
+![](multiset.png)
+
+Comparison same data set implemented with Count-Min Sketch:
+
+![](cms.png)
+
+**Count-min sketch** approach is used to count the frequency of the events on the streaming data. Like Bloom filter,
+Count-min sketch algorithm also works with hash codes. It uses multiple hash functions to map these frequencies on to
+the matrix (Consider sketch here a two-dimensional array or matrix).
+
+### Live Demos of CMS:
+
+https://florian.github.io/count-min-sketch/
