@@ -88,3 +88,12 @@ the matrix (Consider sketch here a two-dimensional array or matrix).
 ### Live Demos of CMS:
 
 https://florian.github.io/count-min-sketch/
+
+# HyperLogLog (HLL)  - probabilistic data structure
+
+- used to estimate the cardinality of a data set.
+
+When we are dealing with very large volumes of data, counting cardinality this way will be very inefficient because the
+data set will take up a lot of memory. But if we are fine with an estimation within a few percent and don't need the
+exact number of unique visits, then we can use the HLL, as it was designed for exactly such a use case – estimating the
+count of millions or even billions of distinct values.

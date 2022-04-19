@@ -15,4 +15,5 @@ repositories {
 dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'com.clearspring.analytics:stream:2.9.5'
+    implementation 'net.agkn:hll:1.6.0'
 }
