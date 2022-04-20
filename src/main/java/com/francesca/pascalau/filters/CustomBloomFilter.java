@@ -11,14 +11,17 @@ public class CustomBloomFilter {
     }
 
     public void add(Object element) {
-        int code = element.hashCode();
+        int hashCode1 = element.hashCode();
+        int hashCode2 = (element.hashCode() + 17) / 23;
 
-        list[code % size] = Boolean.TRUE;
+        list[hashCode1 % size] = Boolean.TRUE;
+        list[hashCode2 % size] = Boolean.TRUE;
     }
 
     public Boolean mightContain(Object element) {
-        int code = element.hashCode();
+        int hashCode1 = element.hashCode();
+        int hashCode2 = (element.hashCode() + 17) / 23;
 
-        return Boolean.TRUE.equals(list[code % size]);
+        return Boolean.TRUE.equals(list[hashCode1 % size]) && Boolean.TRUE.equals(list[hashCode2 % size]);
     }
 }

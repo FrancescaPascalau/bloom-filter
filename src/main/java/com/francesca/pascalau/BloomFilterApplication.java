@@ -17,20 +17,21 @@ public class BloomFilterApplication {
     private static final SmsService smsService = new SmsService(200);
 
     public static void main(String[] args) {
-        bloomFilter();
+//        bloomFilter();
         customBloomFilter();
-        bits();
-        simpleBits();
+//        bits();
+//        simpleBits();
 
-        smsService.sendSms("600 000 001");
-        smsService.sendSms("600 000 002");
-        smsService.sendSms("600 000 010");
-        smsService.sendSms("600 000 001");
+//        smsService.sendSms("600 000 001");
+//        smsService.sendSms("600 000 002");
+//        smsService.sendSms("600 000 010");
+//        smsService.sendSms("600 000 001");
     }
 
     private static void customBloomFilter() {
         customBloomFilter.add(1);
         customBloomFilter.add("Hi");
+        customBloomFilter.add("France");
         customBloomFilter.add(Boolean.TRUE);
         customBloomFilter.add(1111);
 
@@ -38,7 +39,9 @@ public class BloomFilterApplication {
         System.out.println(customBloomFilter.mightContain(1));
         System.out.println(customBloomFilter.mightContain("What"));
         System.out.println(customBloomFilter.mightContain("Hi"));
+        System.out.println(customBloomFilter.mightContain("Fra"));
         System.out.println(customBloomFilter.mightContain(2));
+        System.out.println(customBloomFilter.mightContain(11));
         System.out.println("\n=== Starting Custom Bloom Filter ===");
     }
 
